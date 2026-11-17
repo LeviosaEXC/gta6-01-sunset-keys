@@ -1,0 +1,67 @@
+/* SUNSET KEYS — HUD and menu styling. One palette: peach sunset, deep
+   violet dusk, warm amber windows, police red/blue. */
+:root {
+  --peach: #ff9a5c;
+  --amber: #ffc46b;
+  --violet: #3a2b5c;
+  --ink: #14101f;
+  --paper: #fff3e2;
+  --police-red: #ff3b30;
+  --police-blue: #2f7bff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #1a1230; }
+body { font-family: "Trebuchet MS", Verdana, sans-serif; color: var(--paper); }
+#game-root { position: fixed; inset: 0; }
+#game-canvas { display: block; width: 100%; height: 100%; }
+.hidden { display: none !important; }
+#hud { position: absolute; inset: 0; pointer-events: none; }
+#hud-top-left { position: absolute; top: 14px; left: 16px; text-shadow: 0 2px 4px rgba(0,0,0,.8); }
+#wanted-stars { font-size: 30px; letter-spacing: 4px; color: #ffd23f; line-height: 1; min-height: 30px; }
+#wanted-stars .star-off { color: rgba(255,255,255,.25); }
+#cash-line { font-size: 26px; font-weight: bold; margin-top: 4px; color: #7dff9a; }
+#rep { color: var(--amber); }
+#health-row, #armor-row { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 13px; font-weight: bold; }
+#health-bar, #armor-bar { width: 150px; height: 12px; background: rgba(0,0,0,.55); border: 1px solid rgba(255,255,255,.5); border-radius: 6px; overflow: hidden; }
+#health-fill { height: 100%; width: 100%; background: linear-gradient(90deg, #37d67a, #9dff6b); }
+#armor-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #2f7bff, #7cc4ff); }
+#hud-top-center { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); text-align: center; width: 460px; }
+#objective-box { background: rgba(20,16,31,.72); border: 1px solid rgba(255,196,107,.7); border-radius: 8px; padding: 8px 14px; }
+#objective-title { font-size: 17px; font-weight: bold; color: var(--amber); letter-spacing: 1px; }
+#objective-text { font-size: 15px; margin-top: 2px; }
+#objective-distance { font-size: 15px; font-weight: bold; color: #8fd8ff; margin-top: 2px; }
+#banner { margin-top: 10px; font-size: 24px; font-weight: bold; color: #7dff9a; text-shadow: 0 2px 6px rgba(0,0,0,.9); }
+#hud-top-right { position: absolute; top: 14px; right: 16px; text-align: right; text-shadow: 0 2px 4px rgba(0,0,0,.8); }
+#clock { font-size: 28px; font-weight: bold; }
+#day-label { font-size: 13px; letter-spacing: 2px; color: var(--amber); }
+#district-label { font-size: 15px; font-weight: bold; margin-top: 2px; }
+#minimap-wrap { position: absolute; left: 16px; bottom: 16px; border: 2px solid rgba(255,196,107,.85); border-radius: 50%; overflow: hidden; width: 180px; height: 180px; background: rgba(20,16,31,.6); box-shadow: 0 4px 14px rgba(0,0,0,.5); }
+#minimap { display: block; }
+#minimap-label { position: absolute; bottom: 4px; width: 100%; text-align: center; font-size: 10px; letter-spacing: 3px; color: var(--amber); text-shadow: 0 1px 2px #000; }
+#hud-bottom-right { position: absolute; right: 18px; bottom: 16px; text-align: right; text-shadow: 0 2px 4px rgba(0,0,0,.8); }
+#speed-num { font-size: 44px; font-weight: bold; }
+#speed-unit { font-size: 16px; color: var(--amber); }
+#car-name { font-size: 15px; font-weight: bold; letter-spacing: 2px; }
+#ammo-line { font-size: 18px; font-weight: bold; margin-top: 4px; }
+#message-feed { position: absolute; left: 210px; bottom: 20px; font-size: 15px; line-height: 1.5; text-shadow: 0 2px 3px rgba(0,0,0,.9); max-width: 420px; }
+#message-feed div { margin-top: 2px; }
+#hint-line { position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); font-size: 12px; color: rgba(255,243,226,.75); text-shadow: 0 1px 2px #000; white-space: nowrap; }
+#vignette { position: absolute; inset: 0; box-shadow: inset 0 0 120px rgba(20,10,40,.55); pointer-events: none; }
+#start-screen, #pause-screen, #busted-screen, #wasted-screen { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(180deg, rgba(58,43,92,.82), rgba(255,154,92,.55) 55%, rgba(20,16,31,.9)); text-align: center; z-index: 5; }
+#game-logo { font-size: 84px; font-weight: bold; letter-spacing: 8px; color: var(--paper); text-shadow: 0 4px 0 #c25e3a, 0 8px 24px rgba(0,0,0,.6); }
+#game-tagline { font-size: 22px; color: var(--amber); margin-top: 6px; letter-spacing: 1px; }
+#game-city { font-size: 16px; margin-top: 14px; opacity: .95; }
+#start-screen button, #pause-screen button, #busted-screen button, #wasted-screen button { pointer-events: auto; cursor: pointer; margin-top: 18px; padding: 12px 42px; font-size: 20px; font-weight: bold; letter-spacing: 2px; color: var(--ink); background: linear-gradient(180deg, #ffd98a, var(--peach)); border: 2px solid #fff3e2; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,.45); }
+#start-screen button:hover, #pause-screen button:hover, #busted-screen button:hover, #wasted-screen button:hover { filter: brightness(1.12); }
+#controls-list { margin-top: 26px; font-size: 14px; max-width: 560px; line-height: 1.6; opacity: .95; }
+#save-note { margin-top: 10px; font-size: 13px; opacity: .8; }
+#pause-title, #end-title { font-size: 64px; font-weight: bold; letter-spacing: 6px; text-shadow: 0 4px 18px rgba(0,0,0,.7); }
+#end-title { color: #ff5a4e; }
+#end-sub { font-size: 18px; margin-top: 8px; }
+#pause-settings { margin-top: 22px; font-size: 16px; }
+#pause-settings input { vertical-align: middle; }
+@media (max-width: 900px) {
+  #game-logo { font-size: 52px; }
+  #minimap-wrap { width: 130px; height: 130px; }
+  #minimap { width: 130px; height: 130px; }
+}
